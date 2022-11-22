@@ -50,7 +50,7 @@
 
 #Set the DNS forwarder on the fabric DC so other nodes can find the new domain
 
-    Invoke-Command -VMName *DC -Credential $FabricCreds -ScriptBlock {
+    Invoke-Command -VMName *DC -Credential $Ghostcreds -ScriptBlock {
         Add-DnsServerConditionalForwarderZone -Name $using:HGSDomainName -ReplicationScope Forest -MasterServers $using:HgsServerIPs
     }
 
